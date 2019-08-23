@@ -1,5 +1,6 @@
 const Koa = require('koa')
 const bodyParser = require('koa-bodyparser')
+const cors = require('koa2-cors')
 
 const app = new Koa()
 
@@ -8,6 +9,11 @@ const JiaKoaRoute = require('./1_JiaKaoBaoDian/routers/index')
 
 
 app.use(bodyParser())
+app.use(cors({
+  origin:function(ctx){
+    return '*'
+  }
+}))
 app.use(route.routes())
 app.use(JiaKoaRoute.routes())
 
