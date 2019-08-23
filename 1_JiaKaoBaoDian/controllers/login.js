@@ -7,11 +7,13 @@ module.exports = {
     let userResult = await query(`select * from userInfo where userId='${userInfo.userId}'`)
     if(userResult!=''){
       ctx.body = JSON.stringify({
-        code:'true'
+        code:'true',
+        msg:'登录成功！'
       })
     }else{
       ctx.body = JSON.stringify({
-        code:'false'
+        code:'false',
+        msg:'登录失败！'
       })
     }
   }
